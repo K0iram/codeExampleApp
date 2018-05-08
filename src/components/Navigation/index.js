@@ -10,7 +10,7 @@ class Navagation extends Component {
     return (
       <div className="nav-bar">
         <div className="nav-bar__links">
-          <ul className="nav-bar__menu">
+          <ul className="nav-menu">
             <li>
               <NavLink to="/home" className="nav-link" activeClassName="active">
                 <p>Home</p>
@@ -22,8 +22,8 @@ class Navagation extends Component {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/reverse_string" className="nav-link" activeClassName="active">
-                <p>ReverseString</p>
+              <NavLink to="/is_palindrome" className="nav-link" activeClassName="active">
+                <p>IsPalindrome</p>
               </NavLink>
             </li>
           </ul>
