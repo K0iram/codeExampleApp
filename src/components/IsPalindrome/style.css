@@ -1,0 +1,6 @@
+.example-app {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

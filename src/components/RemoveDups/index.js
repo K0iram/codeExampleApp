@@ -12,7 +12,8 @@ class RemoveDups extends Component {
 
   inputChange = (e) => {
     this.setState({
-      userWord: e.target.value
+      userWord: e.target.value,
+      deDupped: ''
     })
   }
 
@@ -52,7 +53,7 @@ class RemoveDups extends Component {
           <div className="description-container__required">
           <strong><p>Requirments:</p></strong>
             <ul>
-              <li>Allow and length String</li>
+              <li>Allow any length String</li>
               <li>Return de dupped string</li>
               <li>Keep casing from original string</li>
             </ul>
