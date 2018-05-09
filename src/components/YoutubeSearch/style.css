@@ -1,0 +1,13 @@
+.example-app__answer {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1060px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.youtube-container {
+  max-width: 300px;
+  margin: 35px;
+}

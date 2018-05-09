@@ -18,12 +18,17 @@ class Navagation extends Component {
             </li>
             <li>
               <NavLink to="/remove_dups" className="nav-link" activeClassName="active">
-                <p>RemoveDuplicates</p>
+                <p>Remove the Duplicates</p>
               </NavLink>
             </li>
             <li>
               <NavLink to="/is_palindrome" className="nav-link" activeClassName="active">
-                <p>IsPalindrome</p>
+                <p>Is it a Palindrome</p>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/video_search" className="nav-link" activeClassName="active">
+                <p>Youtube Search</p>
               </NavLink>
             </li>
           </ul>
