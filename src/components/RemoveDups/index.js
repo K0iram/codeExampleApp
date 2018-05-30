@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Highlight from 'react-highlight'
 import './style.css'
 
 
@@ -7,13 +7,21 @@ class RemoveDups extends Component {
 
   state = {
     deDupped: '',
+    dups: '',
     userWord: ''
   }
 
-  inputChange = (e) => {
+  onDedupChange = (e) => {
     this.setState({
       userWord: e.target.value,
       deDupped: ''
+    })
+  }
+
+  onFindChange = (e) => {
+    this.setState({
+      userWord: e.target.value,
+      dups: ''
     })
   }
 
@@ -32,6 +40,22 @@ class RemoveDups extends Component {
       deDupped: final,
       userWord: ''
     })
+  }
+
+  findDuplicates = () => {
+    let str = this.state.userWord
+    let userArr = str.split('')
+
+    let results = []
+
+    userArr.forEach((element, index) => {
+      if(userArr.indexOf(element, index + 1) > -1){
+        if(results.indexOf(element) === -1){
+          results.push(element)
+        }
+      }
+    })
+    this.setState({dups: results.join(','), userWord: ''})
   }
 
   render() {
@@ -61,34 +85,64 @@ class RemoveDups extends Component {
         </div>
         <div className="code-block">
           <h5>My Solution:</h5>
-          <code>
-            {`const removeDups = (str) => { `}
-            <br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;{`let userArr = str.split('')`}
-              <br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;{`let seen = {}`}
-              <br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;{`let finalArr = userArr.filter((item) => {`}
-              <br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`let sameCase = item.toLowerCase()`}
-              <br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`return seen.hasOwnProperty(sameCase) ? false : (seen[sameCase] = true)`}
-              <br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;{`})`}
-              <br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;{`return finalArr.join('')`}
-            <br/>
-            {`}`}
-          </code>
+          <Highlight language="javascript">
+            {`
+              const removeDups = (str) => {
+                let userArr = str.split('')
+
+                let seen = {}
+
+                let finalArr = userArr.filter((item) => {
+
+                let sameCase = item.toLowerCase()
+
+                return seen.hasOwnProperty(sameCase) ? false : (seen[sameCase] = true)
+
+                })
+
+                return finalArr.join('')
+              }
+            `}
+          </Highlight>
         </div>
 
         <div className="example-app">
           <div className="example-app__inputs">
-            <input type="text" placeholder="Word to De-Duplicate" onChange={this.inputChange} value={this.state.userWord}/>
+            <input type="text" placeholder="Word to De-Duplicate" onChange={this.onDedupChange} value={this.state.userWord}/>
             <button onClick={this.removeDuplicates}>Submit</button>
           </div>
           <div className="example-app__answer">
             <h5>Your Word without duplicate letters: <br/>{this.state.deDupped}</h5>
+          </div>
+        </div>
+
+        <div className="code-block">
+          <h5>Alternativley you can return the duplicate characters like this:</h5>
+          <Highlight>
+            {`
+              findDups = (str) => {
+                let userStr = str.split('')
+                let results = []
+
+                userStr.forEach((element, index) => {
+                  if(userStr.indexOf(element, index + 1) > -1){
+                    if(results.indexOf(element) === -1){
+                      results.push(element)
+                    }
+                  }
+                })
+                return results.join('')
+              }
+            `}
+          </Highlight>
+        </div>
+        <div className="example-app">
+          <div className="example-app__inputs">
+            <input type="text" placeholder="Word to De-Duplicate" onChange={this.onFindChange} value={this.state.userWord}/>
+            <button onClick={this.findDuplicates}>Submit</button>
+          </div>
+          <div className="example-app__answer">
+            <h5>Your Words duplicate characters: <br/>{this.state.dups}</h5>
           </div>
         </div>
       </div>

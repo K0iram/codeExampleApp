@@ -31,6 +31,11 @@ class Navagation extends Component {
                 <p>Youtube Search</p>
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/fibonacci" className="nav-link" activeClassName="active">
+                <p>Fibonacci</p>
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

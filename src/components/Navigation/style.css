@@ -25,14 +25,14 @@
 /*
 * Underline links on active class
 */
-.nav-link p {
+.nav-link {
   position: relative;
   text-decoration: none;
   color: #2c2c2c;
   font-weight: 200;
 }
 
-.nav-link p:before {
+.nav-link:before {
   content: "";
   position: absolute;
   width: 100%;

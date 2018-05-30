@@ -1,4 +1,4 @@
-import { YouTubeAPI } from '../api'
+import { YouTubeAPI } from './youtubeApi.js'
 import { merge } from 'ramda'
 
 export const searchVideos = async params => {

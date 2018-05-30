@@ -7,6 +7,7 @@ import Home from './components/Home'
 import RemoveDups from './components/RemoveDups'
 import IsPalindrome from './components/IsPalindrome'
 import VideoSearch from './components/YoutubeSearch'
+import Fibonacci from './components/Fibonacci'
 
 import AppLayout from './layout/main'
 
@@ -19,6 +20,7 @@ const Routes = () => (
         <Route path="/remove_dups" component={RemoveDups} />
         <Route path="/is_palindrome" component={IsPalindrome} />
         <Route path="/video_search" component={VideoSearch} />
+        <Route path="/fibonacci" component={Fibonacci} />
       </Switch>
     </AppLayout>
   </Router>

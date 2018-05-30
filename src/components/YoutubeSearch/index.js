@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import VideoPreview from './videoPreview'
-import { searchVideos } from '../../api/youtube'
+import { searchVideos } from './api/youtube'
 
 import './style.css'
 
