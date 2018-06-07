@@ -34,6 +34,12 @@
   top: 0;
   right: 20px;
   cursor: pointer;
+  transition-duration: 0.8s;
+  transition-property: transform;
+}
+
+.close-button svg:hover {
+  transform: rotate(180deg);
 }
 
 .react-drawer-drawer {

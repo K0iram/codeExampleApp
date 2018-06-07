@@ -44,32 +44,32 @@ class Navagation extends Component {
           </div>
           <ul className="nav-menu">
             <li>
-              <Link to="/home" className="nav-link" activeClassName="active" onClick={this.closeDrawer}>
+              <Link to="/home" className="nav-link" onClick={this.closeDrawer}>
                 <p>Home</p>
               </Link>
             </li>
             <li>
-              <Link to="/remove_dups" className="nav-link" activeClassName="active" onClick={this.closeDrawer}>
+              <Link to="/remove_dups" className="nav-link" onClick={this.closeDrawer}>
                 <p>Remove the Duplicates</p>
               </Link>
             </li>
             <li>
-              <Link to="/is_palindrome" className="nav-link" activeClassName="active" onClick={this.closeDrawer}>
+              <Link to="/is_palindrome" className="nav-link" onClick={this.closeDrawer}>
                 <p>Is it a Palindrome</p>
               </Link>
             </li>
             <li>
-              <Link to="/video_search" className="nav-link" activeClassName="active" onClick={this.closeDrawer}>
+              <Link to="/video_search" className="nav-link" onClick={this.closeDrawer}>
                 <p>Youtube Search</p>
               </Link>
             </li>
             <li>
-              <Link to="/fibonacci" className="nav-link" activeClassName="active" onClick={this.closeDrawer}>
+              <Link to="/fibonacci" className="nav-link" onClick={this.closeDrawer}>
                 <p>Fibonacci</p>
               </Link>
             </li>
             <li>
-              <Link to="/max_sub_array" className="nav-link" activeClassName="active" onClick={this.closeDrawer}>
+              <Link to="/max_sub_array" className="nav-link" onClick={this.closeDrawer}>
                 <p>Max Sub Array</p>
               </Link>
             </li>
