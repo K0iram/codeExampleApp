@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Highlight from 'react-highlight'
 
 import './style.css'
 
@@ -58,29 +59,20 @@ class ReverseString extends Component {
           </div>
           <div className="code-block">
             <h5>My Solution:</h5>
-            <code>
-              {`const isPalindrome = (str) => { `}
-              <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;{`let userWord = str.toLowerCase()`}
-                <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;{`let reverse = str.toLowerCase().split('').reverse().join('')`}
-                <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;{`let isTrue = "It's a palindrome!"`}
-                <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;{`let isFalse = "It's not a palindrome..."`}
-                <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;{`if (userWord === reverse) {`}
-                <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`return isTrue`}
-                <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;{`} else {`}
-                <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{`return isFalse`}
-                <br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;{`}`}
-              <br/>
-              {`}`}
-            </code>
+            <Highlight>
+              {`
+              isPalindrome = (str) => {
+                let userWord = str.toLowerCase()
+                let reverse = str.toLowerCase().split('').reverse().join('')
+                let isTrue = "It's a palindrome!"
+                let isFalse = "It's not a palindrome..."
+                if (userWord === reverse) {
+                  return isTrue
+                } else {
+                  return isFalse
+                }
+              `}
+            </Highlight>
           </div>
 
           <div className="example-app">

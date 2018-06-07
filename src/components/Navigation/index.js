@@ -36,6 +36,11 @@ class Navagation extends Component {
                 <p>Fibonacci</p>
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/max_sub_array" className="nav-link" activeClassName="active">
+                <p>Max Sub Array</p>
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

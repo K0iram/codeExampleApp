@@ -87,19 +87,16 @@ class RemoveDups extends Component {
           <h5>My Solution:</h5>
           <Highlight language="javascript">
             {`
-              const removeDups = (str) => {
+              removeDups = (str) => {
                 let userArr = str.split('')
-
                 let seen = {}
-
                 let finalArr = userArr.filter((item) => {
-
                 let sameCase = item.toLowerCase()
-
-                return seen.hasOwnProperty(sameCase) ? false : (seen[sameCase] = true)
-
+                return seen.hasOwnProperty(sameCase) ?
+                  false
+                  :
+                  (seen[sameCase] = true)
                 })
-
                 return finalArr.join('')
               }
             `}

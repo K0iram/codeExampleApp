@@ -8,6 +8,7 @@ import RemoveDups from './components/RemoveDups'
 import IsPalindrome from './components/IsPalindrome'
 import VideoSearch from './components/YoutubeSearch'
 import Fibonacci from './components/Fibonacci'
+import MaxSubArray from './components/MaxSubArray'
 
 import AppLayout from './layout/main'
 
@@ -21,6 +22,7 @@ const Routes = () => (
         <Route path="/is_palindrome" component={IsPalindrome} />
         <Route path="/video_search" component={VideoSearch} />
         <Route path="/fibonacci" component={Fibonacci} />
+        <Route path="/max_sub_array" component={MaxSubArray} />
       </Switch>
     </AppLayout>
   </Router>
