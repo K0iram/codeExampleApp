@@ -1,48 +1,80 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import ReactDrawer from 'react-drawer'
+import { Link } from 'react-router-dom'
+import FaClose from 'react-icons/lib/fa/close';
+import FaBars from 'react-icons/lib/fa/bars';
 
 import './style.css'
-
+import 'react-drawer/lib/react-drawer.css'
 
 class Navagation extends Component {
+  state = {
+    open: false,
+    position: 'left',
+    noOverlay: false
+  }
+
+  toggleDrawer = () => {
+    this.setState({open: !this.state.open})
+  }
+  closeDrawer = () => {
+    this.setState({open: false})
+  }
+  onDrawerClose = () => {
+    this.setState({open: false})
+  }
 
   render() {
     return (
-      <div className="nav-bar">
-        <div className="nav-bar__links">
+      <div>
+        <div className="nav-button">
+          <button
+            onClick={this.toggleDrawer}
+            disabled={this.state.open}
+            >
+            {!this.state.open ? <span><FaBars size={20}/></span>: <span><FaClose size={20}/></span>}
+          </button>
+        </div>
+        <ReactDrawer
+          open={this.state.open}
+          position={this.state.position}
+          onClose={this.onDrawerClose}>
+          <div className="close-button">
+            <FaClose onClick={this.closeDrawer} className="icono-cross" size={20}/>
+          </div>
           <ul className="nav-menu">
             <li>
-              <NavLink to="/home" className="nav-link" activeClassName="active">
+              <Link to="/home" className="nav-link" activeClassName="active" onClick={this.closeDrawer}>
                 <p>Home</p>
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink to="/remove_dups" className="nav-link" activeClassName="active">
+              <Link to="/remove_dups" className="nav-link" activeClassName="active" onClick={this.closeDrawer}>
                 <p>Remove the Duplicates</p>
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink to="/is_palindrome" className="nav-link" activeClassName="active">
+              <Link to="/is_palindrome" className="nav-link" activeClassName="active" onClick={this.closeDrawer}>
                 <p>Is it a Palindrome</p>
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink to="/video_search" className="nav-link" activeClassName="active">
+              <Link to="/video_search" className="nav-link" activeClassName="active" onClick={this.closeDrawer}>
                 <p>Youtube Search</p>
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink to="/fibonacci" className="nav-link" activeClassName="active">
+              <Link to="/fibonacci" className="nav-link" activeClassName="active" onClick={this.closeDrawer}>
                 <p>Fibonacci</p>
-              </NavLink>
+              </Link>
             </li>
             <li>
-              <NavLink to="/max_sub_array" className="nav-link" activeClassName="active">
+              <Link to="/max_sub_array" className="nav-link" activeClassName="active" onClick={this.closeDrawer}>
                 <p>Max Sub Array</p>
-              </NavLink>
+              </Link>
             </li>
           </ul>
-        </div>
+        </ReactDrawer>
       </div>
     )
   }

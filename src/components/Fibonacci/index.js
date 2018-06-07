@@ -43,7 +43,7 @@ class Fibonacci extends Component {
                 <br/>
                 <strong>Example:</strong> 8
                 <br/>
-                 <strong>Output:</strong> 21"
+                 <strong>Output:</strong> 21
               </p>
             </div>
             <div className="description-container__required">

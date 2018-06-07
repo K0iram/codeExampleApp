@@ -8,7 +8,8 @@ class RemoveDups extends Component {
   state = {
     deDupped: '',
     dups: '',
-    userWord: ''
+    userWord: '',
+    userWord2: ''
   }
 
   onDedupChange = (e) => {
@@ -20,7 +21,7 @@ class RemoveDups extends Component {
 
   onFindChange = (e) => {
     this.setState({
-      userWord: e.target.value,
+      userWord2: e.target.value,
       dups: ''
     })
   }
@@ -43,7 +44,7 @@ class RemoveDups extends Component {
   }
 
   findDuplicates = () => {
-    let str = this.state.userWord
+    let str = this.state.userWord2
     let userArr = str.split('')
 
     let results = []
@@ -55,7 +56,7 @@ class RemoveDups extends Component {
         }
       }
     })
-    this.setState({dups: results.join(','), userWord: ''})
+    this.setState({dups: results.join(','), userWord2: ''})
   }
 
   render() {
@@ -105,7 +106,7 @@ class RemoveDups extends Component {
 
         <div className="example-app">
           <div className="example-app__inputs">
-            <input type="text" placeholder="Word to De-Duplicate" onChange={this.onDedupChange} value={this.state.userWord}/>
+            <input type="text" placeholder="Word to De-Duplicate" onChange={this.onDedupChange}/>
             <button onClick={this.removeDuplicates}>Submit</button>
           </div>
           <div className="example-app__answer">
@@ -135,7 +136,7 @@ class RemoveDups extends Component {
         </div>
         <div className="example-app">
           <div className="example-app__inputs">
-            <input type="text" placeholder="Word to De-Duplicate" onChange={this.onFindChange} value={this.state.userWord}/>
+            <input type="text" placeholder="Word to find dups" onChange={this.onFindChange}/>
             <button onClick={this.findDuplicates}>Submit</button>
           </div>
           <div className="example-app__answer">

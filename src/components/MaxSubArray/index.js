@@ -80,7 +80,7 @@ class MaxSubArray extends Component {
           </div>
           <div className="code-block">
             <h5>My Solution:</h5>
-            <Highlight>
+            <Highlight language="javascript">
               {`
                 findMaxSubArray = (arr) => {
                     let maxEndingHere = arr[0]
