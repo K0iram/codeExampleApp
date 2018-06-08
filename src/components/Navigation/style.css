@@ -48,3 +48,10 @@
   justify-content: center;
   background-color: #fff !important;
 }
+
+/* Smaller than phablet */
+@media (max-width: 550px) {
+  .css-sourceMap-modules-importLoaders-1-localIdentName-ReactDrawer__drawer-left___2xURN-sass {
+    width: 100% !important;
+  }
+}

@@ -59,7 +59,7 @@ class ReverseString extends Component {
           </div>
           <div className="code-block">
             <h5>My Solution:</h5>
-            <Highlight>
+            <Highlight language="javascript">
               {`
               isPalindrome = (str) => {
                 let userWord = str.toLowerCase()
