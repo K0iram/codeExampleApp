@@ -73,6 +73,16 @@ class Navagation extends Component {
                 <p>Max Sub Array</p>
               </Link>
             </li>
+            <li>
+              <Link to="/primes" className="nav-link" onClick={this.closeDrawer}>
+                <p>Primes</p>
+              </Link>
+            </li>
+            <li>
+              <Link to="/merged_sorted" className="nav-link" onClick={this.closeDrawer}>
+                <p>Merge Sorted Lists</p>
+              </Link>
+            </li>
           </ul>
         </ReactDrawer>
       </div>
