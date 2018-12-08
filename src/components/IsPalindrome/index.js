@@ -89,4 +89,4 @@ class ReverseString extends Component {
     }
   }
 
-export default ReverseString;
+export default ReverseString

@@ -27,16 +27,16 @@ class RemoveDups extends Component {
   }
 
   removeDuplicates = () => {
-    let str = this.state.userWord
-    let userArr = str.split('')
-    let seen = {};
+    const { userWord } = this.state
+    const userArr = userWord.split('')
+    let seen = {}
 
-    let finalArr = userArr.filter((item) => {
+    const finalArr = userArr.filter((item) => {
       let sameCase = item.toLowerCase()
-      return seen.hasOwnProperty(sameCase) ? false : (seen[sameCase] = true);
+      return seen.hasOwnProperty(sameCase) ? false : (seen[sameCase] = true)
     })
 
-    let final = finalArr.join('')
+    const final = finalArr.join('')
     this.setState({
       deDupped: final,
       userWord: ''
@@ -44,8 +44,8 @@ class RemoveDups extends Component {
   }
 
   findDuplicates = () => {
-    let str = this.state.userWord2
-    let userArr = str.split('')
+    const { userWord2 } = this.state
+    const userArr = userWord2.split('')
 
     let results = []
 
@@ -56,7 +56,10 @@ class RemoveDups extends Component {
         }
       }
     })
-    this.setState({dups: results.join(','), userWord2: ''})
+    this.setState({
+      dups: results.join(','),
+      userWord2: ''
+    })
   }
 
   render() {
@@ -89,14 +92,15 @@ class RemoveDups extends Component {
           <Highlight language="javascript">
             {`
               removeDups = (str) => {
-                let userArr = str.split('')
+                const userArr = str.split('')
                 let seen = {}
-                let finalArr = userArr.filter((item) => {
-                let sameCase = item.toLowerCase()
-                return seen.hasOwnProperty(sameCase) ?
-                  false
+
+                const finalArr = userArr.filter((item) => {
+                  const sameCase = item.toLowerCase()
+                  return seen.hasOwnProperty(sameCase) ?
+                    false
                   :
-                  (seen[sameCase] = true)
+                    (seen[sameCase] = true)
                 })
                 return finalArr.join('')
               }
@@ -148,4 +152,4 @@ class RemoveDups extends Component {
   }
 }
 
-export default RemoveDups;
+export default RemoveDups

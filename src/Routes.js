@@ -11,6 +11,7 @@ import Fibonacci from './components/Fibonacci'
 import MaxSubArray from './components/MaxSubArray'
 import Primes from './components/Primes'
 import MergeSorted from './components/MergeSorted'
+import Fizzbuzz from './components/Fizzbuzz'
 
 import AppLayout from './layout/main'
 
@@ -27,6 +28,8 @@ const Routes = () => (
         <Route path="/max_sub_array" component={MaxSubArray} />
         <Route path="/primes" component={Primes} />
         <Route path="/merged_sorted" component={MergeSorted} />
+        <Route path="/fizzbuzz" component={Fizzbuzz} />
+
       </Switch>
     </AppLayout>
   </Router>

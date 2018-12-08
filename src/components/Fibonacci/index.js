@@ -57,7 +57,7 @@ class Fibonacci extends Component {
           <div className="code-block">
             <Highlight language="javascript">
                {`
-                let fibonacci = (num) => {
+                const fibonacci = (num) => {
                   let a = 1
                   let b = 0
                   let temp = 1
