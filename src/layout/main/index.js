@@ -7,23 +7,12 @@ import Nav from '../../components/Navigation'
 
 class AppLayout extends Component {
 
-  renderChildren() {
-      const childrenWithProps = React.Children.map(this.props.children,
-       (child) => React.cloneElement(child, {
-         notify: this.showNotification
-       })
-      )
-
-      return childrenWithProps
-    }
-
-
     render() {
       return (
         <div className="App">
           <Nav />
           <div className="main-content">
-            { this.renderChildren() }
+            { this.props.children }
           </div>
         </div>
       );
