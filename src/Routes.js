@@ -12,6 +12,7 @@ import MaxSubArray from './components/MaxSubArray'
 import Primes from './components/Primes'
 import MergeSorted from './components/MergeSorted'
 import Fizzbuzz from './components/Fizzbuzz'
+import AllCombos from './components/AllCombos'
 
 import AppLayout from './layout/main'
 
@@ -29,6 +30,7 @@ const Routes = () => (
         <Route path="/primes" component={Primes} />
         <Route path="/merged_sorted" component={MergeSorted} />
         <Route path="/fizzbuzz" component={Fizzbuzz} />
+        <Route path="/all_combos" component={AllCombos} />
 
       </Switch>
     </AppLayout>

@@ -34,5 +34,9 @@ export const links = [
   {
     name: "Fizzbuzz Recursive",
     link: "/fizzbuzz"
+  },
+  {
+    name: "All Possible Combinations",
+    link: "/all_combos"
   }
 ]
