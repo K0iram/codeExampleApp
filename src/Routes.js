@@ -13,6 +13,7 @@ import Primes from './components/Primes'
 import MergeSorted from './components/MergeSorted'
 import Fizzbuzz from './components/Fizzbuzz'
 import AllCombos from './components/AllCombos'
+import StockPrices from './components/StockPrices'
 
 import AppLayout from './layout/main'
 
@@ -31,7 +32,7 @@ const Routes = () => (
         <Route path="/merged_sorted" component={MergeSorted} />
         <Route path="/fizzbuzz" component={Fizzbuzz} />
         <Route path="/all_combos" component={AllCombos} />
-
+        <Route path="/stock_prices" component={StockPrices} />
       </Switch>
     </AppLayout>
   </Router>

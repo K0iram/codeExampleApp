@@ -38,5 +38,9 @@ export const links = [
   {
     name: "All Possible Combinations",
     link: "/all_combos"
+  },
+  {
+    name: "Max Daily Profit",
+    link: "/stock_prices"
   }
 ]
