@@ -1,33 +1,55 @@
 import React, { Component } from 'react'
 import Highlight from 'react-highlight'
+import './styles.css'
 
 
 class StockPrices extends Component {
   state = {
-    prices: [10, 7, 5, 8, 11, 9],
-    maxProfit: ''
+    stocks: [10, 7, 5, 8, 11, 9],
+    maxProfit: '',
+    buyPrice: '',
+    sellPrice: ''
   }
 
-  getMaxProfit = (stockPrices) => {
-    const highPriceTime= stockPrices.indexOf(Math.max(...stockPrices))
-    const lowPriceTime = stockPrices.indexOf(Math.min(...stockPrices))
+  getMaxProfit = (stocks) => {
+    const highestPrice = Math.max(...stocks)
+    const lowestPrice = Math.min(...stocks)
+    const highestPriceTime= stocks.indexOf(highestPrice)
+    const lowestPriceTime = stocks.indexOf(lowestPrice)
 
-    if(stockPrices.length <= 1){
-      throw new Error('Getting a profit requires at least 2 prices')
+    if(stocks.length <= 1){
+      throw new Error('Getting a profit requires at least 2 stocks')
     }
 
-    if(lowPriceTime < highPriceTime ) {
-      this.setState({ maxProfit: stockPrices[highPriceTime] - stockPrices[lowPriceTime] })
+    if(this.lowPriceTime < this.highestPriceTime ) {
+      const best = highestPrice - lowestPrice
+      return this.setState({
+        maxProfit: best,
+        buyPrice: this.lowestPrice,
+        sellPrice: this.highestPrice
+      })
     } else {
-      for(let i=0; i < stockPrices.length; i++){
-        let maxProfits = []
-        maxProfits.push(stockPrices[i+1] - stockPrices[i])
-        this.setState({ maxProfit: Math.max(maxProfits) })
+      let best = {
+        maxProfit: stocks[1] - stocks[0],
+        buyPrice: stocks[0],
+        sellPrice: stocks[1]
       }
+      for(let i=0; i < stocks.length; i++) {
+        for (let j=i+1; j < stocks.length; j++) {
+          let currBest = stocks[j] - stocks[i]
+          if( currBest > best.maxProfit) {
+            best.maxProfit = currBest
+            best.buyPrice = stocks[i]
+            best.sellPrice = stocks[j]
+          }
+        }
+      }
+      return this.setState(best)
     }
   }
 
   render() {
+    const { maxProfit, buyPrice, sellPrice } = this.state
     return (
       <div>
         <h1>Max Daily Profit</h1>
@@ -56,22 +78,30 @@ class StockPrices extends Component {
           <h5>My Solution:</h5>
           <Highlight language="javascript">
             {`
-              getMaxProfit = (stockPrices) => {
-                const highPriceTime= stockPrices.indexOf(Math.max(...stockPrices))
-                const lowPriceTime = stockPrices.indexOf(Math.min(...stockPrices))
+              getMaxProfit = (stocks) => {
+                const highestPrice = Math.max(...stocks)
+                const lowestPrice = Math.min(...stocks)
+                const highestPriceTime= stocks.indexOf(highestPrice)
+                const lowestPriceTime = stocks.indexOf(lowestPrice)
 
-                if(stockPrices.length <= 1){
-                  throw new Error('Getting a profit requires at least 2 prices')
+                if(stocks.length <= 1){
+                  throw new Error('Getting a profit requires at least 2 stocks')
                 }
 
-                if(lowPriceTime < highPriceTime ) {
-                  return stockPrices[highPriceTime] - stockPrices[lowPriceTime]
+                if(this.lowPriceTime < this.highestPriceTime ) {
+                  const maxProfit = highestPrice - lowestPrice
+                  return maxProfit
                 } else {
-                  for(let i=0; i < stockPrices.length; i++){
-                    let maxProfits = []
-                    maxProfits.push(stockPrices[i+1] - stockPrices[i])
-                    return Math.max(maxProfits)
+                  let maxProfit = stocks[1] - stocks[0]
+                  for(let i=0; i < stocks.length; i++) {
+                    for (let j=i+1; j < stocks.length; j++) {
+                      let currBest = stocks[j] - stocks[i]
+                      if( currBest > test.maxProfit) {
+                        maxProfit = currBest
+                      }
+                    }
                   }
+                  return maxProfit
                 }
               }
             `}
@@ -81,11 +111,15 @@ class StockPrices extends Component {
         <div className="example-app">
           <div className="example-app__inputs">
             <p>Stock Prices Today: [10, 7, 5, 8, 11, 9]</p>
-            <button onClick={() => this.getMaxProfit(this.state.prices)}>Submit</button>
+            <button onClick={() => this.getMaxProfit(this.state.stocks)}>Submit</button>
           </div>
-          <div className="example-app__answer">
-            <h5>The Max Profit is:<br/>{this.state.maxProfit}</h5>
-          </div>
+          {maxProfit &&
+            <div className="example-app__answer stocks">
+              <h5>{`Best Profit: $${maxProfit}`}</h5>
+              <h5>{`Buy Price: $${buyPrice}`}</h5>
+              <h5>{`Sell Price $${sellPrice}`}</h5>
+            </div>
+          }
         </div>
       </div>
     )
