@@ -22,15 +22,9 @@ class ReverseString extends Component {
       let str = this.state.userWord.toLowerCase()
       let reverse = str.split('').reverse().join('').toLowerCase()
 
-      if(str === reverse) {
-        this.setState({
-          alert: "Yes this is a palindrome! Cool!"
-        })
-      } else {
-        this.setState({
-          alert: "No palindrome here, just another random word..."
-        })
-      }
+      this.setState({
+        alert: str === reverse ? "Yes this is a palindrome! Cool!" : "No palindrome here, just another random word..."
+      })
     }
 
     render() {
@@ -62,15 +56,12 @@ class ReverseString extends Component {
             <Highlight language="javascript">
               {`
               isPalindrome = (str) => {
-                let userWord = str.toLowerCase()
-                let reverse = str.toLowerCase().split('').reverse().join('')
-                let isTrue = "It's a palindrome!"
-                let isFalse = "It's not a palindrome..."
-                if (userWord === reverse) {
-                  return isTrue
-                } else {
-                  return isFalse
-                }
+                const userWord = str.toLowerCase()
+                const reverse = str.toLowerCase().split('').reverse().join('')
+                const isTrue = "It's a palindrome!"
+                const isFalse = "It's not a palindrome..."
+
+                return userWord === reverse ? isTrue : isFalse
               `}
             </Highlight>
           </div>

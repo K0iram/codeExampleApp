@@ -21,12 +21,11 @@ class StockPrices extends Component {
       throw new Error('Getting a profit requires at least 2 stocks')
     }
 
-    if(this.lowPriceTime < this.highestPriceTime ) {
-      const best = highestPrice - lowestPrice
+    if(lowestPriceTime < highestPriceTime ) {
       return this.setState({
-        maxProfit: best,
-        buyPrice: this.lowestPrice,
-        sellPrice: this.highestPrice
+        maxProfit: highestPrice - lowestPrice,
+        buyPrice: lowestPrice,
+        sellPrice: highestPrice
       })
     } else {
       let best = {
@@ -89,8 +88,7 @@ class StockPrices extends Component {
                 }
 
                 if(this.lowPriceTime < this.highestPriceTime ) {
-                  const maxProfit = highestPrice - lowestPrice
-                  return maxProfit
+                  return highestPrice - lowestPrice
                 } else {
                   let maxProfit = stocks[1] - stocks[0]
                   for(let i=0; i < stocks.length; i++) {
