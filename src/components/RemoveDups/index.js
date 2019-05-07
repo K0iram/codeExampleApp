@@ -31,14 +31,13 @@ class RemoveDups extends Component {
     const userArr = userWord.split('')
     let seen = {}
 
-    const finalArr = userArr.filter((item) => {
+    const noDups = userArr.filter((item) => {
       let sameCase = item.toLowerCase()
       return seen.hasOwnProperty(sameCase) ? false : (seen[sameCase] = true)
-    })
+    }).join('')
 
-    const final = finalArr.join('')
     this.setState({
-      deDupped: final,
+      deDupped: noDups,
       userWord: ''
     })
   }
@@ -95,14 +94,13 @@ class RemoveDups extends Component {
                 const userArr = str.split('')
                 let seen = {}
 
-                const finalArr = userArr.filter((item) => {
+                return userArr.filter((item) => {
                   const sameCase = item.toLowerCase()
                   return seen.hasOwnProperty(sameCase) ?
                     false
                   :
                     (seen[sameCase] = true)
-                })
-                return finalArr.join('')
+                }).join('')
               }
             `}
           </Highlight>
